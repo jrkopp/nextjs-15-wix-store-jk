@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import Product from "@/components/Product";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
-import { getCollecionBySlug } from "@/wix-api/collections";
+import { getCollectionBySlug } from "@/wix-api/collections";
 import { queryProducts } from "@/wix-api/products";
 import { getWixServerClient } from "@/lib/wix-client.server";
 
@@ -47,7 +47,7 @@ export default function Home() {
 async function FeaturedProducts() {
   const wixClient = getWixServerClient();
 
-  const collection = await getCollecionBySlug(
+  const collection = await getCollectionBySlug(
     await wixClient,
     "featured-products",
   );

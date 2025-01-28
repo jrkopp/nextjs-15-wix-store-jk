@@ -23,7 +23,7 @@
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tanstack/react-query": "^5.63.0",
     "@wix/data": "^1.0.185",
-    "@wix/ecom": "^1.0.886",
+    "@wix/ecom": "^1.0.892",
     "@wix/media": "^1.0.141",
     "@wix/members": "^1.0.155",
     "@wix/redirects": "^1.0.70",

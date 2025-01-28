@@ -75,3 +75,18 @@ export async function removeCartItem(
 ) {
   return wixClient.currentCart.removeLineItemsFromCurrentCart([productId]);
 }
+
+export async function clearCart(wixClient: WixClient) {
+  try {
+    return await wixClient.currentCart.deleteCurrentCart();
+  } catch (error) {
+    if (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (error as any).details.applicationError.code === "OWNED_CART_NOT_FOUND"
+    ) {
+      return null;
+    } else {
+      throw error;
+    }
+  }
+}

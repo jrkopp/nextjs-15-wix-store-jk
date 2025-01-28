@@ -1,5 +1,6 @@
 "use client";
 
+import CheckoutButton from "@/components/CheckoutButton";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -59,7 +60,11 @@ export default function ShoppingCartButton({
           <div className="flex grow flex-col space-y-5 overflow-y-auto pt-1">
             <ul className="space-y-5">
               {cartQuery.data?.lineItems?.map((item) => (
-                <ShoppingCartItem key={item._id} item={item} />
+                <ShoppingCartItem
+                  key={item._id}
+                  item={item}
+                  onProductLinkClicked={() => setSheetOpen(false)}
+                />
               ))}
             </ul>
             {cartQuery.isLoading && (
@@ -84,6 +89,7 @@ export default function ShoppingCartButton({
             )}
             <pre>{JSON.stringify(cartQuery.data, null, 2)}</pre>
           </div>
+          <hr />
           <div className="flex items-center justify-between gap-5">
             <div className="space-y-0.5">
               <p className="text-sm">Subtotal amount:</p>
@@ -95,9 +101,10 @@ export default function ShoppingCartButton({
                 Shipping and taxes calculated at checkout
               </p>
             </div>
-            <Button size="lg" disabled={!totalQuantity || cartQuery.isFetching}>
-              Checkout
-            </Button>
+            <CheckoutButton
+              size="lg"
+              disabled={!totalQuantity || cartQuery.isFetching}
+            />
           </div>
         </SheetContent>
       </Sheet>
@@ -110,7 +117,10 @@ interface ShoppingCartItemProps {
   onProductLinkClicked: () => void;
 }
 
-function ShoppingCartItem({ item }: ShoppingCartItemProps) {
+function ShoppingCartItem({
+  item,
+  onProductLinkClicked,
+}: ShoppingCartItemProps) {
   const updateQuantityMutation = useUpdateCartItemQuantity();
 
   const removeItemMutation = useRemoveCartItem();
@@ -146,7 +156,7 @@ function ShoppingCartItem({ item }: ShoppingCartItemProps) {
         </button>
       </div>
       <div className="space-y-1.5 text-sm">
-        <Link href={`/products/${slug}`}>
+        <Link href={`/products/${slug}`} onClick={onProductLinkClicked}>
           <p className="font-bold">{item.productName?.translated || "Item"}</p>
         </Link>
         {!!item.descriptionLines?.length && (
