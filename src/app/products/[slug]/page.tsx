@@ -13,9 +13,9 @@ import ProductReviews, { ProductReviewsLoadingSkeleton } from "./ProductReview";
 import { getProductReviews } from "@/wix-api/reviews";
 
 export interface PageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
 export async function generateMetadata({
   params,
