@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 };
 
 interface PageProps {
-  searchParams: { orderId: string };
+  searchParams: Promise<{ orderId: string }>;
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const { orderId } = searchParams;
+  const { orderId } = await searchParams;
   const wixClient = await getWixServerClient();
 
   const [order, loggedInMember] = await Promise.all([
