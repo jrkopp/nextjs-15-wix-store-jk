@@ -15,7 +15,7 @@ import {
   useRemoveCartItem,
 } from "@/hooks/cart";
 import { currentCart } from "@wix/ecom";
-import { on } from "events";
+
 import { Loader2, ShoppingCartIcon, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";

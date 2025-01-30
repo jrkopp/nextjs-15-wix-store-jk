@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import { media as wixMedia } from "@wix/sdk";
 import { products } from "@wix/stores";
 import Link from "next/link";
 import React from "react";
