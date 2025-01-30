@@ -16,7 +16,7 @@ interface PageProps {
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const { orderId } = await searchParams;
+  const { orderId } = searchParams;
   const wixClient = await getWixServerClient();
 
   const [order, loggedInMember] = await Promise.all([
