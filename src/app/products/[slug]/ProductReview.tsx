@@ -102,7 +102,10 @@ function Review({
           {content?.title && <h3 className="font-bold">{content.title}</h3>}
         </div>
         <p className="text-sm text-muted-foreground">
-          by {author?.authorName} on {new Date(reviewDate).toLocaleDateString()}
+          by {author?.authorName} on{" "}
+          {reviewDate
+            ? new Date(reviewDate).toLocaleDateString()
+            : "Unknown date"}
         </p>
         {content?.body && (
           <div className="whitespace-pre-line">{content.body}</div>
