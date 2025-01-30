@@ -29,7 +29,6 @@ import { useRef } from "react";
 import { Button } from "../ui/button";
 import { CircleAlert, ImageUp, Loader2, X } from "lucide-react";
 import useMediaUpload, { MediaAttachment } from "./useMediaUpload";
-import { clear } from "console";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 

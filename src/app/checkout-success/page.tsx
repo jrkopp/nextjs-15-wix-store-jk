@@ -5,6 +5,7 @@ import { getOrder } from "@/wix-api/orders";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ClearCart from "./ClearCart";
 
 export const metadata: Metadata = {
   title: "Checkout Success",

@@ -15,6 +15,7 @@ export function useCreateBackInStockNotificationRequest() {
     onError(error) {
       console.error(error);
       if (
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (error as any).details.applicationError.code ===
         "BACK_IN_STOCK_NOTIFICATION_ALREADY_EXISTS"
       ) {

@@ -18,7 +18,6 @@ import {
 } from "@tanstack/react-query";
 import { currentCart } from "@wix/ecom";
 import { useToast } from "./use-toast";
-import { clear } from "console";
 
 const queryKey: QueryKey = ["cart"];
 
