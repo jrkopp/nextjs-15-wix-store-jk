@@ -3,15 +3,15 @@ import { getProductById } from "@/wix-api/products";
 import { notFound, redirect } from "next/navigation";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   searchParams: any;
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const { id } = params;
+  const { id } = await params;
 
   if (id === "someId") {
     redirect(
